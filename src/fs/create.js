@@ -1,22 +1,18 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
 
 const create = async () => {
-    const folderPath = path.join('src', 'fs', 'files');
-    const fileName = 'fresh.txt';
-    const fullPath = path.join(folderPath, fileName);
+    const fullPathToFile = './src/fs/files/fresh.txt';
     const textContent = 'I am fresh and young';
 
     try {
-        await fs.stat(fullPath);
-        throw new Error('FS operation failed');
+        await fs.writeFile(fullPathToFile, textContent, {flag: 'wx'});
     } catch (error) {
-        if (error.code === 'ENOENT') {
-            await fs.writeFile(fullPath, textContent);
+        if (error.code === 'EEXIST') {
+            throw new Error('FS operation failed');
         } else {
-            console.log(error);
+            throw new Error(error);
         }
     }
 };
 
-await create();
+create();
