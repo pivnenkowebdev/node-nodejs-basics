@@ -32,11 +32,3 @@ const copy = async () => {
 };
 
 await copy();
-
-//  implement function that copies folder files, with all its content into folder files_copy at the same level (if files folder doesn't exists or files_copy has already been created Error with message FS operation failed must be thrown)
-// 1. check exists files folder +
-// 2. if the files folder don`t created - throw error +
-// 2.1 if files folder created - need copy content +
-// 3. check exists files_copy folder +
-// 3.1 if folder has been created - throw error +
-// 3. else need to create folder and paste content from files folder +
