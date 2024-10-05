@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const create = async () => {
-    const fullPathToFile = './src/fs/files/fresh.txt';
+    const fullPathToFile = path.join('src', 'fs', 'files', 'fresh.txt');
     const textContent = 'I am fresh and young';
 
     try {
