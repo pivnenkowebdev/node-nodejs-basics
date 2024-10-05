@@ -10,10 +10,10 @@ const rename = async () => {
 
     try {
         await fs.access(pathToNewFile);
-        throw new Error('FS operation failed: has been created');
+        throw new Error('FS operation failed');
     } catch (error) {
-        if (error.message === 'FS operation failed: has been created') {
-            console.error('FS operation failed: has been created');
+        if (error.message === 'FS operation failed') {
+            console.error('FS operation failed');
             return;
         } else {
             try {
@@ -21,7 +21,7 @@ const rename = async () => {
                 await fs.rename(pathToWrongFile, pathToNewFile);
             } catch (error) {
                 if (error.code === 'ENOENT') {
-                    console.error('FS operation failed: not found');
+                    console.error('FS operation failed');
                     throw new Error('FS operation failed');
                 }
             }

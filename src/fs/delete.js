@@ -8,7 +8,7 @@ const remove = async () => {
         await fs.unlink(pathToFile);
     } catch (error) {
         if (error.code === 'ENOENT') {
-            console.error('FS operation failed: has been deleted');
+            console.error('FS operation failed');
         }
     }
 };
