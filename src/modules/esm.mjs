@@ -2,7 +2,7 @@ import { createRequire } from 'module';
 import path from 'path';
 import { release, version } from 'os';
 import { createServer } from 'http';
-import log from './files/c.mjs';
+import log from './files/c.js';
 
 const require = createRequire(import.meta.url);
 
